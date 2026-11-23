@@ -27,6 +27,7 @@ The plugin can run on two different playback engines. You choose one while addin
 - Stopping playback in Music Assistant releases the device in the Spotify app; moving playback to another device in the Spotify app stops the MA player
 - Crossfade and loudness normalization are configurable in the plugin settings
 - With the Soloist engine you can choose how volume behaves: `Player volume only` (default, the audio always arrives untouched) or syncing the Spotify app's volume slider with the player volume
+- With the Soloist engine you can keep the player connected while paused, so pausing (in the Spotify app or on the speaker itself) and pressing play again picks up where you left off on the same speaker, instead of the speaker dropping the session
 
 ## Configuration
 
@@ -34,6 +35,7 @@ The plugin can run on two different playback engines. You choose one while addin
 2. Choose the playback engine. For Soloist, the setup walks you through the download consent and creating the API key.
 3. When the setup has finished, open the plugin's settings. Under **Connected players**, select every player that should appear in the Spotify app. Each selected player is advertised as its own Spotify Connect device, and the audio always plays on the player whose device you picked in the app.
 4. Optionally change **Advertised device name**, which controls how the devices are named after their player: `Player name | Music Assistant` (the default), `Player name only`, or `Music Assistant | Player name`. Renaming a player renames its device.
+5. Optionally (Soloist engine only) enable **Keep the player connected while paused**. By default a pause stops the player, which ends its session: an AirPlay speaker, for example, then switches back to its own source. With this option on, the player is paused instead and resumes where it left off when you press play. It applies to each connected player that supports pausing; others are stopped as before. **Release the player after a pause of (minutes)** (default 10, `0` = never) stops the player after a long pause, so a forgotten pause does not keep the speaker connected.
 
 > [!NOTE]
 > Home Assistant players are supported but not recommended — your mileage may vary. Native Music Assistant players work best.
